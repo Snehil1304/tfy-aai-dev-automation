@@ -16,7 +16,7 @@ DEFAULT_VOLUME = "snl-vol6"
 
 DEFAULT_HF_TOKEN = "hf_xxxxxxxxxxxxxxxxxxxxxx"   # Same token is OK
 DEFAULT_SECRET_VAL = "mysecret123"
-DEFAULT_PASSWORD_SECRET_FQN = "tfy-secret://truefoundry:volume-browser:password"
+DEFAULT_PASSWORD_SECRET_FQN = "tfy-secret://aai-dev:snl-volbrow:password"
 
 # 👉 PASTE YOUR SSH PUBLIC KEY HERE
 DEFAULT_SSH_PUBLIC_KEY = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQ...."
@@ -110,7 +110,7 @@ def main():
     infra_files = [
         "yamls/01-ml-repo.yaml",
         "yamls/02-workspace.yaml",
-        #"yamls/03-volume.yaml",
+        "yamls/03-volume.yaml",
     ]
 
     app_files = [
