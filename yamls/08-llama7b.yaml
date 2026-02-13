@@ -4,11 +4,16 @@ name: llama-7b-deployment
 image:
   type: image
   image_uri: vllm/vllm-openai:v0.6.3
-  command: >
-    python3 -m vllm.entrypoints.openai.api_server
-    --model TinyLlama/TinyLlama-1.1B-Chat-v1.0
-    --gpu-memory-utilization 0.80
-    --max-model-len 2048
+  command:
+    - python3
+    - -m
+    - vllm.entrypoints.openai.api_server
+    - --model
+    - TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    - --gpu-memory-utilization
+    - "0.80"
+    - --max-model-len
+    - "2048"
 
 ports:
   - host: llama-{{WORKSPACE_NAME}}.{{BASE_DOMAIN}}
