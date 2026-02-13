@@ -1,7 +1,7 @@
 type: workspace
 name: {{WORKSPACE_NAME}}
 cluster_fqn: {{CLUSTER_FQN}}
-environment_name: devtest
+environment_name: dev
 collaborators:
   - role_id: workspace-admin
     subject: user:{{USER_EMAIL}}
