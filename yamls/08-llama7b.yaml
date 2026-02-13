@@ -13,6 +13,7 @@ ports:
     port: 8000
     expose: true
     protocol: TCP
+    app_protocol: http
 env:
   HUGGING_FACE_HUB_TOKEN: {{HF_TOKEN}}
 workspace_fqn: {{CLUSTER_FQN}}:{{WORKSPACE_NAME}}
