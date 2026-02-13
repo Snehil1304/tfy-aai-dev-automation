@@ -1,32 +1,42 @@
 type: service
 name: llama-7b-deployment
+
 image:
   type: image
   image_uri: vllm/vllm-openai:v0.6.3
-  command: >-
+  command: >
     python3 -m vllm.entrypoints.openai.api_server
     --model TinyLlama/TinyLlama-1.1B-Chat-v1.0
     --gpu-memory-utilization 0.80
     --max-model-len 2048
+
 ports:
   - host: llama-{{WORKSPACE_NAME}}.{{BASE_DOMAIN}}
     port: 8000
     expose: true
     protocol: TCP
     app_protocol: http
+
 env:
   HUGGING_FACE_HUB_TOKEN: {{HF_TOKEN}}
+
 workspace_fqn: {{CLUSTER_FQN}}:{{WORKSPACE_NAME}}
+
 replicas: 1
+
 auto_shutdown:
   wait_time: 900
+
 mounts:
   - type: volume
     mount_path: /root/.cache/huggingface
     volume_fqn: tfy-volume://{{CLUSTER_FQN}}:{{WORKSPACE_NAME}}:{{VOLUME_NAME}}
+
 labels:
   tfy_openapi_path: openapi.json
+
 allow_interception: false
+
 resources:
   node:
     type: node_selector
